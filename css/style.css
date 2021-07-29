@@ -1,0 +1,137 @@
+@font-face{
+    font-family: 'Tajawal-regular';
+    src: url(../fonts/Tajawal-Regular.ttf);
+}
+@font-face{
+    font-family: 'Tajawal-black';
+    src: url(../fonts/Tajawal-Black.ttf);
+}
+@font-face{
+    font-family: 'Tajawal-bold';
+    src: url(../fonts/Tajawal-Bold.ttf);
+}
+body{
+    font-family:'Tajawal-regular', sans-serif;
+    font-size: 18px;
+}
+.header{
+    background-color: #f8ece6;
+}
+.header-text{
+    padding: 15px 50px 0px 0px;
+}
+.header-text nav a{
+    color: #484f5b;
+    font-family: 'Tajawal-black';
+    font-size: 35px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.brush-effect{
+    position: absolute;
+    top: 110px;
+    width: 24%;
+}
+.header-text h3 {
+    color: #0e1118;
+    font-family: 'Tajawal-bold';
+    font-size: 32px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 5;
+}
+.header-text p{
+    color: #484f5b;
+    line-height: 30px;
+}
+.btn-custom{
+    background-color: #e6c8c3;
+    color: #484f5b;
+    font-family: 'Tajawal-black';
+    font-size: 19px;
+    margin: 20px 60px;
+    padding: 10px 32px;
+    transition: all 0.5s cubic-bezier(0.51, 1.02, 0.68, 0.53);
+}
+.btn-custom:hover, .btn-custom:active{
+    background-color: #9c685f;
+    color: #ebedf0;
+    box-shadow: none;
+}
+.header-img{
+    background-color: #9aa4ad;
+}
+.header-img img{
+    width: -webkit-fill-available;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+}
+/* *************************************************
+***********************************************
+media
+***********************************************
+*****************************************************/
+@media(min-width: 1500px){
+    .header-text{
+        padding: 15px 50px 0px;
+    }
+    .brush-effect{
+        top: 100px;
+    }
+    .btn-custom{
+        margin: 60px;
+    }
+}
+@media(max-width: 992px){
+    .btn-custom {
+        margin: 21px 10px 40px 50px;
+        padding: 10px 25px;
+    }
+    .brush-effect{
+        width: 32%;
+    }
+
+}
+@media(max-width: 767px){
+    .btn-custom {
+        width: 80%;
+        margin: 40px;
+        padding: 18px;
+    }
+    .header-text{
+        padding: 15px 50px 0px;
+    }
+}
+@media(max-width: 576px){
+    .header-text{
+        padding: 15px 40px 0px;
+    }
+    .header-text nav a{
+        font-size: 30px;
+    }
+    .header-text h3{
+        font-size: 25px;
+    }
+    .btn-custom{
+        font-size: 17px;
+        margin: 40px 0px 20px;
+    }
+}
+@media(max-width: 420px){
+    body{
+        font-size: 15px;
+    }
+    .header-text nav a{
+        font-size: 19px;
+    }
+    .brush-effect{
+        width: 38%;
+        top: 90px;
+    }
+    .header-text h3{
+        font-size: 20px;
+    }
+    
+}
