@@ -68,6 +68,26 @@ body{
     left: 0;
     
 }
+/*نافذة الطلب */
+#delivery-info input, #delivery-info textarea{
+    box-shadow: none;
+}
+.your-order{
+    border-top: solid 1px lightgray;
+    padding-top: 10px;
+}
+.custom-table select{
+    width: 50%;
+}
+th{
+    padding-bottom: 8px;
+}
+td{
+    padding-left: 8px;
+}
+.error{
+    color: red;
+}
 /* *************************************************
 ***********************************************
 media
@@ -119,7 +139,7 @@ media
         margin: 40px 0px 20px;
     }
 }
-@media(max-width: 420px){
+@media(max-width: 450px){
     body{
         font-size: 15px;
     }
@@ -133,5 +153,13 @@ media
     .header-text h3{
         font-size: 20px;
     }
-    
+    .custom-table{
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 14px;
+    }
+    .custom-table select{
+        width: 90%;
+    }
+
 }

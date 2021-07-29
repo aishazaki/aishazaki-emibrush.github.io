@@ -9,10 +9,13 @@
     
     <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
-    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
-
+    <script src="./js/index.js"></script>
+    <script src="./assest/jquery-validation/jquery.validate.min.js"></script>
+    <script src="./assest/jquery-validation/messages_ar.js"></script>
 </head>
 <body>
     <div class="container-fluid">
@@ -30,12 +33,100 @@
                         سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف
                     </p>
                     <div class="buttons text-center">
-                        <button type="button" class="btn btn-order btn-custom" data-toggle="modal" data-target="#checkout">الشراء الان</button>
+                        <button type="button" class="btn btn-order btn-custom" data-toggle="modal" data-target="#orderConfirm">الشراء الان</button>
                         <button type="button" class="btn btn-custom">مميزات المنتج</button>
                     </div>
                 </div>
                 <div class="col-4 header-img pr-0 d-none d-md-block">
                     <img src="./photo/model pic 1.jpg" alt="hair model">
+                </div>
+
+                <!-- نافذة الطلب -->
+                <div class="col-12">
+                    <div class="container">
+                        <div class="modal fade" id="orderConfirm">
+                            <div class="modal-dialog  modal-dialog-centered">
+                              <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                  <h4 class="modal-title mx-auto pl-3">طلب فرشاة ايمي</h4>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                          
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <form id="confirm-order-form" method="GET" action="#" >
+                                       <!-- معلومات العميل -->
+                                        <div class="row pl-3 mb-4">
+                                            <p class="text-secondary">
+                                               لاستكمال الطلب قومي بادخال المعلومات التالية:
+                                            </p>
+                                        </div>
+                                        <div class="row mx-auto" id="delivery-info">
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" class="form-control text-dark"
+                                                placeholder="اكتب اسمك/المستلم هنا " name="customer_name" required>
+                                            </div>
+                                            <div class="col-md-6 form-group">
+                                                <input type="text" class="form-control text-dark"
+                                                placeholder="رقم الجوال" name="customer_phone" required>
+                                            </div>
+                                            <div class="col-12 form-group">
+                                                <textarea class="form-control text-dark" name="customer_address" rows="5"
+                                                placeholder="اكتب عنوانك: المدينة-الحي-الشارع-رقم العمارة" required></textarea>
+                                            </div>
+                                        </div>                                
+                                        <div class="row">
+                                            <!-- طلب العميل وتكلفته --> 
+                                            <div class="col-12 the-order">
+                                                <p class="your-order">
+                                                    طلبك
+                                                </p>
+
+                                                <table class="custom-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>المنتج</th> 
+                                                            <th>السعر</th>
+                                                            <th class="text-center">العدد المطلوب</th>
+                                                            <th></th> 
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr data-product-info data-product-price="200">
+                                                            <td>
+                                                                فرشاة الشعر من ايمي
+                                                            </td>
+                                                            <td class="total-price-for-product">
+                                                                200 ريال
+                                                            </td>
+                                                            <td>
+                                                                <input type="hidden" name="product1" value="فرشاة الشعر من ايمي">
+                                                                <select name="quantity" data-product-quantity class="form-control mx-auto quantity">
+                                                                    <option value="1" selected>1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3" >3</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="pl-4">
+                                                                <button class="btn custom-btn btn-outline-danger" data-remove-order>
+                                                                    <span class="d-none d-md-block">حذف</span>
+                                                                    <i class="fas fa-trash-alt d-block d-md-none"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <button type="submit" class="btn btn-custom mx-auto mt-4">تاكيد الطلب </button>
+                                        </div>
+                                   </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
                 </div>
             </div>
         </section>
