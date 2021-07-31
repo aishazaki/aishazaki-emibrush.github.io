@@ -22,5 +22,19 @@ $(document).ready(function(){
         $(this).parents('.custom-table').remove();
        
     });
+
     $("#confirm-order-form").validate();
+
+    //لاخفاء واظهار تفاصيل مزايا المنتج
+    $(".seeMore-btn").on("click", function () {
+        $(".second-row").slideToggle("slow");
+        
+        $(".seeMore-btn ").toggleClass('seeMore');
+        if ($(".seeMore-btn").hasClass('seeMore')) {
+            $(".seeMore-btn").text('تفاصيل اكثر');
+        }
+        else{
+            $(".seeMore-btn").text('اخفاء')
+        }
+    });
 })

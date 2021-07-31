@@ -88,6 +88,43 @@ td{
 .error{
     color: red;
 }
+/************************************************
+*****************************************************
+ features section 
+ ***********************************************
+******************************************************/
+.features{
+    padding: 40px;
+}
+.features h3{
+    font-family:'Tajawal-bold';
+    color: #353d4d;
+    margin-bottom: 50px;
+}
+.features li.media + li.media{
+    margin-top: 150px;
+}
+.features  .media-body +img, .features img + .media-body{
+    margin-right: 40px;
+}
+.features .media img{
+    width: 80px;
+}
+#brush img {
+    width: 70%;
+}
+.second-row{
+    background-color: rgb(184 204 241 / 48%);
+}
+.second-row .carousel{
+    width: 50%;
+}
+.second-row .carousel-indicators{
+    background: cornflowerblue;
+    width: 200px;
+    border-radius: 10px;
+
+}
 /* *************************************************
 ***********************************************
 media
@@ -103,16 +140,62 @@ media
     .btn-custom{
         margin: 60px;
     }
+    .features li.media + li.media{
+        margin-top: 180px;
+    }
+    #brush img {
+        width: 65%;
+    }
+}
+@media (max-width: 1280px) {
+    #brush img {
+        width: 75%;
+    }
+    .features .media img{
+        width: 60px;
+    }
+    .features li.media + li.media{
+        margin-top: 130px;
+    }
+    .features h4{
+        font-size: 20px;
+    }
+}
+@media(max-width: 1100px){
+    .features h4{
+        font-size: 18px;
+    }
+    .features li.media + li.media{
+        margin-top: 100px;
+    }
+    #brush img {
+        width: 78%;
+    }
 }
 @media(max-width: 992px){
+    .header-text{
+        padding: 15px 50px 0px 30px;
+    }
     .btn-custom {
         margin: 21px 10px 40px 50px;
         padding: 10px 25px;
+        font-size: 17px;
     }
     .brush-effect{
         width: 32%;
     }
-
+    .features  .media-body +img, .features img + .media-body{
+        margin-right: 20px;
+    }
+    .features .media img{
+        width: 50px;
+    }
+    .features li.media + li.media{
+        margin-top: 80px;
+    }
+    .second-row .carousel{
+        width: 60%;
+    }
 }
 @media(max-width: 767px){
     .btn-custom {
@@ -120,8 +203,15 @@ media
         margin: 40px;
         padding: 18px;
     }
-    .header-text{
-        padding: 15px 50px 0px;
+    #brush img{
+        width: 32%;
+        transform: rotate(271deg);
+    }
+    .features li.media + li.media {
+        margin-top: 40px;
+    }
+    .second-row .carousel{
+        width: 100%;
     }
 }
 @media(max-width: 576px){
