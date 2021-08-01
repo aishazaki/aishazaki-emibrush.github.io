@@ -163,24 +163,92 @@ td{
 ul.container {
     padding: 0;
     margin: 50px auto 20px;
-  }
+}
   
-  ul.container li {
-    background: #a779717a;
-    color: #ddd;
-    list-style-type: none;
-    padding: 1em;
-    margin: 16px;
-    border-radius: 19px;
-    transition: all 0.6s ease-in-out;
-    width: 86%;
-  }
-  
-  ul.container li:nth-child(2) {
+ul.container li {
+background: #a779717a;
+color: #ddd;
+list-style-type: none;
+padding: 1em;
+margin: 16px;
+border-radius: 19px;
+transition: all 0.6s ease-in-out;
+width: 86%;
+}
+
+ul.container li:nth-child(2) {
+color: #fff;
+background: #9c685f;
+width: 95%;
+}
+/* ************************************************
+*****************************************************
+ common qestions section 
+ ***********************************************
+****************************************************** */
+section.faq {
+    background-image: url("../photo/bg-cQ.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+/* إضافة طبقة سوداء أمام الصورة وضبط الحاشية الخاصة بها */
+
+section.faq .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 70px 0 80px;
+}
+
+section.faq .overlay .title {
+    margin-bottom: 60px;
+}
+
+section.faq .title h3 {
+    font-size: 30px;
+    color: #ffffff;
+}
+section.faq .overlay .card {
+    margin-bottom: 25px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0px;
+    border-radius: 0px;
+}
+section.faq .overlay .card-header {
+    background-color: transparent;
+    border-bottom: 0px;
+}
+section.faq .card-header h5 a {
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+    position: relative;
+}
+/* تغير موضع السهم الموجود في البطاقات */
+.card-header h5 a i {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
+section.faq .card .card-block {
+    font-size: 15px;
+    line-height: 20px;
+    padding: 0 1.25rem 1.25rem;
+    color: #c9c9c9;
+}
+
+/* تغير مؤشر السهم إلى الأعلى عندما تكون البطاقة ملقة */
+
+.card-header h5 a.collapsed[aria-expanded="false"] i:before {
+    content: "\f107";
+}
+.footer{
+    background-color: #050505;
+    padding: 5px ;
+}
+.footer a{
     color: #fff;
-    background: #9c685f;
-    width: 95%;
-  }
+}
 /* *************************************************
 ***********************************************
 media
@@ -294,6 +362,7 @@ media
         margin: 12px;
         width: auto;
         height: 35%;
+        overflow: hidden;
     }
       
     ul.container li:nth-child(2) {
