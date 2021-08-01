@@ -96,7 +96,7 @@ td{
 .features{
     padding: 40px;
 }
-.features h3{
+.title h3{
     font-family:'Tajawal-bold';
     color: #353d4d;
     margin-bottom: 50px;
@@ -143,6 +143,44 @@ td{
     left: 0;
     min-height: 100%;
 }
+/* ************************************************
+*****************************************************
+ comments section 
+ ***********************************************
+****************************************************** */
+.comments-section{
+    position: relative;
+}
+.comments-section:before{
+    content:"\f086";
+    font-family: "Font Awesome 5 Free";
+    font-size: 32rem;
+    color: rgba(241, 184, 215, 0.48);
+    position: absolute;
+    top: -161px;
+    left: 53px;
+}
+ul.container {
+    padding: 0;
+    margin: 50px auto 20px;
+  }
+  
+  ul.container li {
+    background: #a779717a;
+    color: #ddd;
+    list-style-type: none;
+    padding: 1em;
+    margin: 16px;
+    border-radius: 19px;
+    transition: all 0.6s ease-in-out;
+    width: 86%;
+  }
+  
+  ul.container li:nth-child(2) {
+    color: #fff;
+    background: #9c685f;
+    width: 95%;
+  }
 /* *************************************************
 ***********************************************
 media
@@ -248,6 +286,19 @@ media
     }
     .video-section .container{
         padding: 0;
+    }
+    .video-section .col-12{
+        padding: 0;
+    }
+    ul.container li {
+        margin: 12px;
+        width: auto;
+        height: 35%;
+    }
+      
+    ul.container li:nth-child(2) {
+        height: 50%;
+        width: auto;
     }
 }
 @media(max-width: 450px){
