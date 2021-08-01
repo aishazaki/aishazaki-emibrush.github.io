@@ -125,6 +125,24 @@ td{
     border-radius: 10px;
 
 }
+/* ************************************************
+*****************************************************
+ video section 
+ ***********************************************
+****************************************************** */
+.video-section{
+    background: #F9e6e6;
+}
+#carousel-video .carousel-item{
+    height: 100vh;
+}
+#carousel-video .carousel-item img{
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+}
 /* *************************************************
 ***********************************************
 media
@@ -227,6 +245,9 @@ media
     .btn-custom{
         font-size: 17px;
         margin: 40px 0px 20px;
+    }
+    .video-section .container{
+        padding: 0;
     }
 }
 @media(max-width: 450px){
