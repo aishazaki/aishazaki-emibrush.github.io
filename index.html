@@ -52,7 +52,7 @@
                           
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form id="confirm-order-form" name="serverless-form" method="GET" action="#" >
+                                    <form id="confirm-order-form" autocomplete="off" name="serverless-form" method="POST">
                                        <!-- معلومات العميل -->
                                         <div class="row pl-3 mb-4">
                                             <p class="text-secondary">
@@ -62,15 +62,15 @@
                                         <div class="row mx-auto" id="delivery-info">
                                             <div class="col-md-6 form-group">
                                                 <input type="text" class="form-control text-dark"
-                                                placeholder="اكتب اسمك/المستلم هنا " name="customer_name" required>
+                                                placeholder="اكتب اسمك/المستلم هنا " name="name" value="" required>
                                             </div>
                                             <div class="col-md-6 form-group">
                                                 <input type="text" class="form-control text-dark"
-                                                placeholder="رقم الجوال" name="customer_phone" required>
+                                                placeholder="رقم الجوال" name="phone" value="" required>
                                             </div>
                                             <div class="col-12 form-group">
-                                                <textarea class="form-control text-dark" name="customer_address" rows="5"
-                                                placeholder="اكتب عنوانك: المدينة-الحي-الشارع-رقم العمارة" required></textarea>
+                                                <textarea class="form-control text-dark" name="address" rows="5"
+                                                placeholder="اكتب عنوانك: المدينة-الحي-الشارع-رقم العمارة" value="" required></textarea>
                                             </div>
                                         </div>                                
                                         <div class="row">
@@ -98,7 +98,7 @@
                                                                 200 ريال
                                                             </td>
                                                             <td>
-                                                                <input type="hidden" name="product1" value="فرشاة الشعر من ايمي">
+                                                                <input type="hidden" name="product" value="فرشاة الشعر من ايمي">
                                                                 <select name="quantity" data-product-quantity class="form-control mx-auto quantity">
                                                                     <option value="1" selected>1</option>
                                                                     <option value="2">2</option>
@@ -115,9 +115,10 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <button type="submit" class="btn btn-custom mx-auto mt-4">تاكيد الطلب </button>
+                                            <input type="submit" class="btn btn-custom mx-auto mt-4" value="تاكيد الطلب " name="submit"/>
                                         </div>
                                    </form>
+                                  <div id="loader"></div>
                                 </div>
                               </div>
                             </div>
@@ -401,7 +402,7 @@
         <!-- التذييل -->
         <div class="row footer">
             <div class="col-12 text-center">
-                <ul class="inline-list">
+                <ul class="inline-list pt-2">
                     <li class="list-inline-item mr-3"><a href="#">سياسة الخصوصية</a></li>
                     <li class="list-inline-item mr-3"><a href="#">سياسة الاسترجاع</a></li>
                     <li class="list-inline-item"><a href="#">تواصل معنا</a></li>
@@ -415,5 +416,40 @@
     <script src="./js/index.js"></script>
     <script src="./assest/jquery-validation/jquery.validate.min.js"></script>
     <script src="./assest/jquery-validation/messages_ar.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--send data to google  sheet -->
+    <script>
+        var spinner = $('#loader');
+        const scriptURLC ='https://script.google.com/macros/s/AKfycbxsNlco3W6EIs_7G4TN-HOpODmR3tgO7ca0AiajwxHxrqKwCewc/exec'
+        const serverlessForm = document.forms['serverless-form'];
+
+        serverlessForm.addEventListener('submit', e => {
+            e.preventDefault();
+            spinner.show();
+
+
+            fetch(scriptURLC, {
+                    mode: 'no-cors',
+                    method: 'POST',
+                    body: new FormData(serverlessForm)
+                })
+                .then(res => {
+
+                    console.log(res);
+                    spinner.hide();
+
+                    
+                    swal("تم ارسال طلبك بنجاح!",
+                         "سنتواصل معك قريبا.احظى بتسوق ممتع!", "success");
+                    return true;
+                })
+                .catch(error => {
+
+                    swal("حدث خطأ ما!", `ارجو معاودة المحاولة   لاحقا: ${error}`, "error");
+                    // todo enable submit button
+
+                })
+        });
+    </script>
 </body>
 </html>
