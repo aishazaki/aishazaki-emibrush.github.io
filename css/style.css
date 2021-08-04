@@ -18,19 +18,13 @@ body{
     background-color: #f8ece6;
 }
 .header-text{
-    padding: 15px 50px 0px 0px;
+    padding: 45px 50px;
 }
-.header-text nav a{
-    color: #484f5b;
-    font-family: 'Tajawal-black';
-    font-size: 35px;
-    margin-bottom: 30px;
-    position: relative;
-}
+
 .brush-effect{
     position: absolute;
-    top: 110px;
-    width: 24%;
+    top: 30px;
+    width: 29%;
 }
 .header-text h3 {
     color: #0e1118;
@@ -59,15 +53,12 @@ body{
     box-shadow: none;
 }
 .header-img{
-    background-color: #9aa4ad;
+    background: url(../photo/header1.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: screen;
 }
-.header-img img{
-    width: -webkit-fill-available;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    
-}
+
 /*نافذة الطلب */
 #delivery-info input, #delivery-info textarea{
     box-shadow: none;
@@ -262,6 +253,9 @@ section.faq .card .card-block {
     background: rgba(0, 0, 0, .75) url(../photo/Spinner-1s-200px.svg) no-repeat center center;
     z-index: 10000
 }
+.noOrder{
+    color:red;
+}
 /* *************************************************
 ***********************************************
 media
@@ -269,13 +263,23 @@ media
 *****************************************************/
 @media(min-width: 1500px){
     .header-text{
-        padding: 15px 50px 0px;
+        padding: 100px 50px 0px;
+    }
+    .header-text h3{
+        font-size: 42px;
+    }
+    .header-text p{
+        line-height: 50px;
+        font-size: 30px;
     }
     .brush-effect{
-        top: 100px;
+        top: 80px;
+        width: 21%
     }
     .btn-custom{
         margin: 60px;
+        width: 50%;
+        font-size: 25px;
     }
     .features li.media + li.media{
         margin-top: 180px;
@@ -309,9 +313,12 @@ media
         width: 78%;
     }
 }
-@media(max-width: 992px){
+@media(max-width: 991px){
     .header-text{
-        padding: 15px 50px 0px 30px;
+        padding: 30px 50px 0px 30px;
+    }
+    .header-text h3{
+        font-size: 26px;
     }
     .btn-custom {
         margin: 21px 10px 40px 50px;
@@ -319,7 +326,8 @@ media
         font-size: 17px;
     }
     .brush-effect{
-        width: 32%;
+        width: 33%;
+        top: 24px;
     }
     .features  .media-body +img, .features img + .media-body{
         margin-right: 20px;
@@ -335,6 +343,12 @@ media
     }
 }
 @media(max-width: 767px){
+    .header-img p {
+        height: 50vh;
+    }
+    .brush-effect{
+        top: 18px;
+    }
     .btn-custom {
         width: 80%;
         margin: 40px;
@@ -353,10 +367,10 @@ media
 }
 @media(max-width: 576px){
     .header-text{
-        padding: 15px 40px 0px;
+        padding: 27px 40px 0px;
     }
-    .header-text nav a{
-        font-size: 30px;
+    .header-img p {
+        height: 40vh;
     }
     .header-text h3{
         font-size: 25px;
@@ -387,15 +401,18 @@ media
     body{
         font-size: 15px;
     }
-    .header-text nav a{
-        font-size: 19px;
+    .header-text{
+        padding: 27px 30px 0px;
     }
     .brush-effect{
         width: 38%;
-        top: 90px;
     }
     .header-text h3{
-        font-size: 20px;
+        font-size: 19px;
+        margin-bottom: 30px;
+    }
+    .header-img p {
+        height: 37vh;
     }
     .custom-table{
         margin-right: auto;

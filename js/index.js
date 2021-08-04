@@ -10,7 +10,6 @@ $(document).ready(function(){
         var pricePerUnit = parent.attr('data-product-price');
         //السعر الاجمالي للمنتج
         var totalPriceForProduct= newQuantity * pricePerUnit;
-        console.log (totalPriceForProduct)
         //تعيين السعر الاجمالي ضمن خلية السعر الاجمالي بالسطر
         parent.find('.total-price-for-product').text( totalPriceForProduct + 'ريال')
     
@@ -18,12 +17,65 @@ $(document).ready(function(){
 
     //عند حذف المنتج من نافذة الطلب
     $('[data-remove-order]').on('click', function() {
-        $(this).parents('.the-order').find('.your-order').after("<p>لم تطلب شيئا</p>"); 
-        $(this).parents('.custom-table').remove();
-       
+        $(this).parents('.the-order').find('.your-order').after("<p class='noOrder'>لم تطلب شيئا</p>"); 
+        $(this).parents('.custom-table').hide();
+        $('[data-product-quantity]').val('0');
+    });
+    //عند الضغط على زر الشراء
+    var ordersTable = $(".custom-table");
+    $('[data-toggle="modal"]').on('click', function () {
+        ordersTable.show();
+        $('.noOrder').remove();
+        $('[data-product-quantity]').val('1');
     });
 
-    $("#confirm-order-form").validate();
+    //للتحقق من مدخلات النموذج
+    jQuery.validator.setDefaults({
+        debug: true,
+        success: "valid"
+    });
+    jQuery.validator.addMethod("orders", function (value, element) {
+       var numberOfOrders= $('[data-product-quantity]').val();
+       return this.optional(element) || numberOfOrders !=="0";
+
+    },'لطفا اختيار العدد المطلوب من فرشاة ايمي')
+    $("#confirm-order-form").validate({
+        rules:{
+            name:{
+                required: true,
+                minlength:3
+            },
+            phone:{
+                required: true,
+                number:true,
+                minlength: 10
+            },
+            address:{
+                required: true,
+            },
+            quantity:{
+                required: true,
+                orders: true
+            }
+
+        },
+        messages:{
+            name:{
+                required: " لطفا اكتب اسمك هنا",
+                minlength:" يجب ان يتكون الاسم من 3 احرف على الاقل"
+            },
+            phone:{
+                required: "لطفا ادخل رقم هاتفك",
+                number:"يجب ادخال ارقام فقط",
+                minlength:" يجب ان يتكون رقم الهاتف من 10 ارقام على الاقل"
+            },
+            address:{
+                required: "لطفا ادخل عنوانك",
+            }
+        },
+        validClass:'success'
+    }); 
+   
 
     //لاخفاء واظهار تفاصيل مزايا المنتج
     $(".seeMore-btn").on("click", function () {

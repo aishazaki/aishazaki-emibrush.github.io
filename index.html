@@ -17,11 +17,8 @@
         <!-- الترويسة -->
         <section>
             <div class="row header">
-                <div class="col-md-8 col-12 header-text">
-                    <nav class="navbar">
-                        <a href="#" class="navbar-brand">EMIBRUSH</a>
-                    </nav>
-                    <img src="./photo/Brush-effect.png" class="brush-effect">
+                <div class="col-md-7 col-12 header-text order-md-1">
+                    <img src="./photo/Brush-effect.png" class="brush-effect" alt="فرشاة">
                     <h3> فرشاة الشعر 1x3 من EmiBrush</h3>
                     <p>
                         هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة  ما 
@@ -29,13 +26,10 @@
                     </p>
                     <div class="buttons text-center">
                         <button type="button" class="btn btn-order btn-custom" data-toggle="modal" data-target="#orderConfirm">الشراء الان</button>
-                        <a href="#features">
-                            <button type="button" class="btn btn-custom">مميزات المنتج</button>
-                        </a> 
                     </div>
                 </div>
-                <div class="col-4 header-img pr-0 d-none d-md-block">
-                    <img src="./photo/model pic 1.jpg" alt="hair model">
+                <div class="col-md-5 col-12 header-img pr-0 order-first order-md-2">
+                    <p></p>
                 </div>
 
                 <!-- نافذة الطلب -->
@@ -61,16 +55,16 @@
                                         </div>
                                         <div class="row mx-auto" id="delivery-info">
                                             <div class="col-md-6 form-group">
-                                                <input type="text" class="form-control text-dark"
+                                                <input type="text" class="form-control text-dark myinput1"
                                                 placeholder="اكتب اسمك/المستلم هنا " name="name" value="" required>
                                             </div>
                                             <div class="col-md-6 form-group">
-                                                <input type="text" class="form-control text-dark"
+                                                <input type="text" class="form-control text-dark myinput2"
                                                 placeholder="رقم الجوال" name="phone" value="" required>
                                             </div>
                                             <div class="col-12 form-group">
-                                                <textarea class="form-control text-dark" name="address" rows="5"
-                                                placeholder="اكتب عنوانك: المدينة-الحي-الشارع-رقم العمارة" value="" required></textarea>
+                                                <input class="form-control text-dark myinput3" name="address" type="text"
+                                                placeholder="اكتب عنوانك: المدينة-الحي-الشارع-رقم العمارة" value="" required />
                                             </div>
                                         </div>                                
                                         <div class="row">
@@ -99,11 +93,7 @@
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" name="product" value="فرشاة الشعر من ايمي">
-                                                                <select name="quantity" data-product-quantity class="form-control mx-auto quantity">
-                                                                    <option value="1" selected>1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3" >3</option>
-                                                                </select>
+                                                                <input name="quantity" id="select" type="number" min="1" max="2" data-product-quantity class="form-control mx-auto quantity">
                                                             </td>
                                                             <td class="pl-4">
                                                                 <button class="btn custom-btn btn-outline-danger" data-remove-order>
@@ -115,7 +105,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <input type="submit" class="btn btn-custom mx-auto mt-4" value="تاكيد الطلب " name="submit"/>
+                                            <input type="submit" class="btn btn-custom mx-auto mt-4 submit" value="تاكيد الطلب " name="submit"/>
                                         </div>
                                    </form>
                                   <div id="loader"></div>
@@ -157,7 +147,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 text-center" id="brush">
-                    <img src="./photo/Layer 1.png" alt="فرشاة EmiBrush">
+                    <img src="./photo/Layer1.png" alt="فرشاة EmiBrush">
                 </div>
                 <div class="col-md-4 pt-lg-5 pt-md-4">
                     <ul class="list-unstyled">
@@ -188,9 +178,9 @@
                     <div class="carousel slide mx-auto" id="carousel-features" data-ride="carousel">
                         <!-- ازرار التنقل -->
                         <ol class="carousel-indicators mx-auto">
-                            <li class="active" data-target="#carousel-features" data-slide-to="0" ></i>
-                            <li data-target="#carousel-features" data-slide-to="1" ></i>
-                            <li  data-target="#carousel-features" data-slide-to="2" ></i>
+                            <li class="active" data-target="#carousel-features" data-slide-to="0" ></li>
+                            <li data-target="#carousel-features" data-slide-to="1" ></li>
+                            <li  data-target="#carousel-features" data-slide-to="2" ></li>
                         </ol>
                         <!-- معرض الصور -->
                         <div class="carousel-inner">
@@ -302,7 +292,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                            <a data-toggle="collapse"  data-target="#collapse1" aria-expanded="true" aria-controls="#collapse1">
+                                            <a data-toggle="collapse" role="button"  href="#collapse1" aria-expanded="true" aria-controls="collapse1">
                                                 هل يمكن استخدام فرشاة ايمي يوميا؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -317,7 +307,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                        <a data-toggle="collapse" class="collapsed" aria-controls="#collapse2" data-target="#collapse2" aria-expanded="false">
+                                            <a data-toggle="collapse" role="button" class="collapsed" aria-controls="collapse2" href="#collapse2" aria-expanded="false">
                                                 ما طريقة الاستخدام المناسبة  للشعر  الجاف او الخشن؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -332,7 +322,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                        <a class="collapsed" data-toggle="collapse" aria-controls="#collapse3" data-target="#collapse3" aria-expanded="false">
+                                        <a class="collapsed" role="button"  data-toggle="collapse" aria-controls="collapse3" href="#collapse3" aria-expanded="false">
                                             كيف اطلب الفرشاة؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -351,7 +341,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                        <a data-toggle="collapse" class="collapsed" data-target="#collapse4" aria-expanded="false">
+                                        <a data-toggle="collapse" role="button" class="collapsed" href="#collapse4" aria-expanded="false">
                                                 ماهى طريقة الدفع وكم مصاريف الشحن؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -366,7 +356,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                            <a data-toggle="collapse" class="collapsed" data-target="#collapse5" aria-expanded="false">
+                                            <a data-toggle="collapse" role="button" class="collapsed" href="#collapse5" aria-expanded="false">
                                                 متى تصلني؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -381,7 +371,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5> 
-                                            <a data-toggle="collapse" class="collapsed" clas data-target="#collapse6" aria-expanded="false">
+                                            <a data-toggle="collapse" role="button" class="collapsed" href="#collapse6" aria-expanded="false">
                                                 متى  ينتهي الخصم؟
                                                 <i class="fas fa-angle-up"></i>
                                             </a>
@@ -415,15 +405,34 @@
     <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
     <script src="./js/index.js"></script>
     <script src="./assest/jquery-validation/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="./assest/jquery-validation/messages_ar.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--send data to google  sheet -->
     <script>
         var spinner = $('#loader');
+        var modal = $("#orderConfirm");
+        var Name = $("input.myinput1");
+        var phone= $("input.myinput2");
+        var address= $("input.myinput3");
+
         const scriptURLC ='https://script.google.com/macros/s/AKfycbxsNlco3W6EIs_7G4TN-HOpODmR3tgO7ca0AiajwxHxrqKwCewc/exec'
         const serverlessForm = document.forms['serverless-form'];
-
+        //عند  الضغطع لى زر تاكيد الطلب
         serverlessForm.addEventListener('submit', e => {
+
+            //للتاكد من الكمية المختارة ليست صفر
+            if ($('[data-product-quantity]').val() === "1" || $('[data-product-quantity]').val()==="2") {
+                console.log($('[data-product-quantity]').val())
+                $('[data-product-quantity]').addClass("success")
+            }
+
+            //عندما  تصبح الحقول محققة من قبل  jquery vlidation ارسل البيانات ل google  sheet
+          if(Name.hasClass("success") 
+            && phone.hasClass("success") 
+            && address.hasClass("success")
+            && $('[data-product-quantity]').hasClass("success") ){
+
             e.preventDefault();
             spinner.show();
 
@@ -441,6 +450,11 @@
                     
                     swal("تم ارسال طلبك بنجاح!",
                          "سنتواصل معك قريبا.احظى بتسوق ممتع!", "success");
+                    modal.modal('hide');
+                    serverlessForm.reset();
+                    Name.removeClass("success") 
+                    phone.removeClass("success") 
+                    address.removeClass("success")
                     return true;
                 })
                 .catch(error => {
@@ -449,6 +463,8 @@
                     // todo enable submit button
 
                 })
+          }
+           
         });
     </script>
 </body>
