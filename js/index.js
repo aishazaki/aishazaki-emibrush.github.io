@@ -18,6 +18,7 @@ $(document).ready(function(){
     //عند حذف المنتج من نافذة الطلب
     $('[data-remove-order]').on('click', function() {
         $(this).parents('.the-order').find('.your-order').after("<p class='noOrder'>لم تطلب شيئا</p>"); 
+        $(this).parents(".the-order").removeClass("unremoved")
         $(this).parents('.custom-table').hide();
         $('[data-product-quantity]').val('0');
     });
@@ -27,6 +28,7 @@ $(document).ready(function(){
         ordersTable.show();
         $('.noOrder').remove();
         $('[data-product-quantity]').val('1');
+        $(".the-order").addClass("unremoved")
     });
 
     //للتحقق من مدخلات النموذج
@@ -34,11 +36,13 @@ $(document).ready(function(){
         debug: true,
         success: "valid"
     });
-    jQuery.validator.addMethod("orders", function (value, element) {
+
+    /* jQuery.validator.addMethod("orders", function (value, element) {
        var numberOfOrders= $('[data-product-quantity]').val();
        return this.optional(element) || numberOfOrders !=="0";
 
-    },'لطفا اختيار العدد المطلوب من فرشاة ايمي')
+    },'لطفا اختيار العدد المطلوب من فرشاة ايمي') */
+
     $("#confirm-order-form").validate({
         rules:{
             name:{

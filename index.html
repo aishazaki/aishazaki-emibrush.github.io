@@ -93,7 +93,10 @@
                                                             </td>
                                                             <td>
                                                                 <input type="hidden" name="product" value="فرشاة الشعر من ايمي">
-                                                                <input name="quantity" id="select" type="number" min="1" max="2" data-product-quantity class="form-control mx-auto quantity">
+                                                                <select name="quantity" id="select" type="number" min="1" max="2" data-product-quantity class="form-control mx-auto quantity">
+                                                                    <option value="1" selected>1</option>
+                                                                    <option value="2">2</option>
+                                                                </select>
                                                             </td>
                                                             <td class="pl-4">
                                                                 <button class="btn custom-btn btn-outline-danger" data-remove-order>
@@ -421,17 +424,12 @@
         //عند  الضغطع لى زر تاكيد الطلب
         serverlessForm.addEventListener('submit', e => {
 
-            //للتاكد من الكمية المختارة ليست صفر
-            if ($('[data-product-quantity]').val() === "1" || $('[data-product-quantity]').val()==="2") {
-                console.log($('[data-product-quantity]').val())
-                $('[data-product-quantity]').addClass("success")
-            }
-
+           
             //عندما  تصبح الحقول محققة من قبل  jquery vlidation ارسل البيانات ل google  sheet
           if(Name.hasClass("success") 
             && phone.hasClass("success") 
             && address.hasClass("success")
-            && $('[data-product-quantity]').hasClass("success") ){
+            && $('.the-order').hasClass("unremoved") ){
 
             e.preventDefault();
             spinner.show();
